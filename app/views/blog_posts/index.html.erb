@@ -1,0 +1,10 @@
+<h1> My blog </h1>
+
+<% @blog_posts.each do |blog_post|%>
+   <h3> <%= link_to blog_post.title, blog_post %> </h3>
+   <%= blog_post.body%>
+   </div>
+<%end %>
+
+
+<%= button_to "New Blog Post", new_blog_post_path, method: :get %>

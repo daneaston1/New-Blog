@@ -1,0 +1,8 @@
+<h1> <%= @blog_post.title%> </h1>
+<%= @blog_post.body%>
+<br><br/>
+<div>
+<%= button_to "Edit", edit_blog_post_path, method: :get %> 
+<%= button_to "Back", root_path, method: :get%>
+<%= button_to "Delete", blog_post_path, method: :delete, class: "delete-button", onclick: "return confirm('Are you sure?');" %>
+</div>
