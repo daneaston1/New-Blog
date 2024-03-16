@@ -1,3 +1,6 @@
+
+
+
 <%= form_with model: @blog_post do |form|%>
     <% if form.object.errors.any?%>
         <div>
@@ -7,16 +10,20 @@
         </div>
     <%end%>
 
-    <div>
-    <%= form.label :title%>
-    <%= form.text_field :title%>
+    <div class ="field form-group">
+    <%#= form.label :title, style: "display: block"%>
+    <%= label_tag "title", "Blog Title" %>
+    <%= form.text_field :title, class:"form-control"%>
     </div>
 
-    <div>
-    <%= form.label :body%>
-    <%= form.text_area :body%>
+    <div class ="field form-group">
+    <%#= form.label :body, style: "display: block"%>
+    <%= label_tag "body", "Body of Blog" %>
+    <%= form.text_area :body, class:"form-control"%>
     </div>
 
-    <%= form.button%>
+    <%= form.submit class:"btn btn-dark"%>
 
 <% end %>
+
+

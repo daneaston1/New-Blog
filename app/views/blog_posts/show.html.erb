@@ -1,13 +1,20 @@
-<h1> <%= @blog_post.title%> </h1>
-<%= @blog_post.body%>
-<br><br/>
-<div>
- <% if user_signed_in?%>
-        <%= button_to "Edit", edit_blog_post_path, method: :get %> 
-        <%= button_to "Delete", blog_post_path, method: :delete, class: "delete-button", onclick: "return confirm('Are you sure?');" %>
+<div class="jumbotron">
+  <h1 class="display-4"><%= @blog_post.title%></h1>
+  <hr class="my-4">
+  <%= @blog_post.body%>
+  <br><br/>
+
+  <div>
+    <% if user_signed_in?%>
+        <%= button_to "Edit", edit_blog_post_path, method: :get, class:"btn btn-dark" %> 
+        <%#= button_to "Delete", blog_post_path, method: :delete, class: "delete-button", onclick: "return confirm('Are you sure?');", class:"btn btn-danger" %>
     <%end%>
+    </div>
+</div>
 
+<div class="row">
 
-<%= button_to "Back", root_path, method: :get%>
-
+    <div class="col-md-3">
+    <%= button_to "Back", root_path, method: :get, class:"btn btn-primary"%>
+    </div>
 </div>
