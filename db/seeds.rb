@@ -8,9 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
+begin
 user = User.where(email: "Danieleaston10@gmail.com").first_or_initialize
 user.update!(
     password: "Password",
     password_confirmation: "Password"
 )
+rescue ActiveRecord::RecordInvalid => e
+    puts "User creation failed: #{e.message}"
+  end
