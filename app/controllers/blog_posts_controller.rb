@@ -1,5 +1,7 @@
 class BlogPostsController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
     before_action :set_blog_post, except: [:index, :new, :create] #only: [:show, :edit, :update, :destroy]
+    
 
     def index
         @blog_posts = BlogPost.all
@@ -16,7 +18,6 @@ class BlogPostsController < ApplicationController
         @blog_post = BlogPost.new(blog_post_params)
         if @blog_post.save
             redirect_to @blog_post
-        
         else
             render :new, status: :unprocessable_entity
         end
@@ -43,10 +44,11 @@ class BlogPostsController < ApplicationController
     def blog_post_params
         params.require(:blog_post).permit(:title, :body)
     end
-end
 
     def set_blog_post
         @blog_post = BlogPost.find(params[:id])
     rescue ActiveRecord::RecordNotFound
         redirect_to root_path
     end
+
+end
