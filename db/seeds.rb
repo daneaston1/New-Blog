@@ -9,7 +9,7 @@
 #   end
 
 
-user = User.where(email: "Dane@gmail.com").first_or_initialize
+user = User.where(email: "Danieleaston10@gmail.com").first_or_initialize
 user.update!(
     password: "Password",
     password_confirmation: "Password"
