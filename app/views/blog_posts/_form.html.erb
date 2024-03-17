@@ -23,7 +23,7 @@
     <div class ="field form-group">
         <%= form.label :published_at%>
         <%= form.datetime_select :published_at, include_blank: true %>
-        <%= button_tag "Set to current Date and Time", type: "button", onclick: "insertCurrentDateTime()" %>
+        <%= button_tag "Set to current Date and Time", type: "button", onclick: "insertCurrentDateTime()", class:"btn btn-link ml-3" %>
 
     </div>
 
