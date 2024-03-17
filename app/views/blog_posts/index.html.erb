@@ -4,9 +4,21 @@
    <%= button_to "New Blog Post", new_blog_post_path, method: :get, class: "btn btn-primary" %>
    </div>
    <br>
+
+
   <% @blog_posts.each do |blog_post| %>
-    <div class="card mb-4">
+    
+
+    <div class="card mb-3">
       <div class="card-body">
+        <% if blog_post.draft?%>
+      <div class="alert alert-secondary">Draft</div>
+
+      <%elsif blog_post.scheduled?%>
+      <div class="alert alert-primary">Blog is scheduled for: <%= blog_post.published_at.strftime('%B %d, %Y %H:%M') %></div>
+
+      <% end%>
+
         <h4 class="card-title"><%= link_to blog_post.title, blog_post %></h4>
         <p class="card-text"><%= truncate(blog_post.body, length: 100)%></p>
       </div>
